@@ -22,6 +22,10 @@ module Todo
     end
 
     def add(todo)
+      if todo == nil
+        raise ArgumentError
+      end
+
       new_id = @todos.inject(0) do |memo, existingtodo|
         memo = existingtodo.id.to_i + 1 if existingtodo.id.to_i >= memo
       end
